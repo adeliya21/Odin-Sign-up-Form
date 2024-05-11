@@ -1,0 +1,171 @@
+
+/*
+FIX, IMPROVE, IMPLEMENT:
+1 - fix picture sizing
+2 - fix photo credits to be in left half footer
+3 - implement dark/light mode (need to rethink current color scheme)
+4 - implement mobile view
+5 - improve valid/invalid color (currently comemnted out)
+*/
+
+body {
+    overflow: hidden; /* makes page not scrollable: https://stackoverflow.com/questions/12031618/how-to-make-a-page-unscrollable */
+    font-size: 1.5rem; /* Rem (short for “root-em”) units dictate an element's font size relative to the size of the root element. By default, most browsers use a font size value of 16px. */
+    font-family: Ubuntu, sans-serif;
+}
+
+/* removes margin and padding space */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* ------------- MAIN  ------------ */
+/* main holds right and left halfs */
+/* default is column, so have to change to row */
+.main-container {
+    display: flex;
+    flex-flow: row;
+}
+
+/* How to do 40/60 split screen? https://stackoverflow.com/questions/22321466/html-css-image-taking-half-of-the-screen */
+
+/* ------------- LEFT HALF  ------------ */
+
+.left-half {
+    background-image: url(aaron-burden-FHWgqOniOSY-unsplash.jpg);
+    width: 40vw;
+    height: 100vh;
+    left: 0px;
+
+    /* to place logo */
+    display: flex;
+    flex-flow: column;
+    justify-content: center; /* moves logo from top left corner to center but the text alignment will be by left(default) side */
+}
+
+.logo {
+    text-align: center; /* makes the alignment of text to be center */
+    font-size: 5rem;
+    color: pink;
+}
+
+.photo-credit {
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+/* -------------- RIGHT HALF ------------ */
+.right-half {
+    width: 60vw;
+    height: 100vh;
+    right: 0px; /* without it, the right half by default will be on the left side */
+
+    /* to place right-container */
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+/* -------------- RIGHT CONTAINER ------------ */
+
+/* right-container holds:
+1 - dummy-text
+2 - form 
+*/
+
+.right-container {
+    padding: 0 3vw 0 3vw;
+}
+
+.remote-text {
+    margin: 5vh 0 10vh 0;
+}
+
+/* -------------- FORM ------------ */
+
+/* form holds:
+1 - title div
+2 - form-inputs div
+3 - button div
+4 - login-exists div
+*/
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+/* -------------- 2 - form-inputs div ------------ */
+
+/* form-inputs holds all the input elements */
+.form-inputs {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 3vw;
+}
+
+/* input class holds both label and input element*/
+.input {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    width: 40%; /* without it, input will take 100% of parent width, if u do 50% row wrap will just become simple cloumn */
+    /* padding: 2vh 0 2vh 0; */
+    text-transform: uppercase;
+}
+
+/* input element holds just input field */
+input {
+    border: 1px solid pink;
+    border-radius: 3px;
+    font-size: 1.2rem;
+}
+
+input:focus{
+    outline: none;
+    border: 2px solid pink;
+}
+
+/*
+input:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 2px solid green;
+}
+*/
+
+/* -------------- 3 - button div ------------ */
+
+.create-account-button {
+    padding: 1vh 3vw 1vh 3vw; /* space between button-text and borders of the button */
+    border: 3px solid pink;
+    border-radius: 3px;
+    background-color: white;
+    font-size: 1.5rem;
+    color: pink;
+    margin: 2vh 0 2vh 0; /* placement of the button itself in relation to other elements */
+}
+
+.create-account-button:hover {
+    background-color: pink;
+    color: white;
+}
+
+/* -------------- 4 - login-exists div ------------ */
+
+/* default is column, so have to change to row */
+.log-in-exists {
+    display: flex;
+    gap: 1vw;
+}
+
+a {
+    color: pink;
+    text-decoration:underline;
+}
